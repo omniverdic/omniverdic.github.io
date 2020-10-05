@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction Time Test</title>
-</head>
-<body>
-    <title></title>
+<html>
+
+    <head>
+        <title>Reaction time test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="entire">
+            <t>Test your reaction time.<br>Wait for turning the screen to green. Then tap anywhere and your reaction time will be displayed. Give it a try:</t>
+            <button>Start</button>
+        </div>
+        <div class="wait" dn>
+            Wait for green color!
+        </div>
+        <div class="tap" dn>
+            Tap now!
+        </div>
+        <div class="toofast" dn>
+            <t>You were too fast!<br>Please tap when screen is green!</t>
+            <button>Continue</button>
+        </div>
+        <div class="result" dn>
+            <t>It took you <res></res>ms to tap!</t>
+            <hs dn>You set a new highscore!</hs>
+            <button>Continue</button>
+        </div>
+        <div class="highscore">
+             Highscore: <res>? </res>ms
+         </div>
+        <footer>v.0.1 | Code written by Patrick G. in 2017.</footer>
+    </body>
     
-</body>
 </html>
