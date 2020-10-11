@@ -7,6 +7,13 @@ an element */
 var timer; //Variabeln för hur lång tid innan färgskärm visas
 var reaction; //Variablen för hur snabbt du lyckades reagera på färgen
 
+
+//Användarinformation (namn, ålder och biologiskt kön)
+var name;
+var age;
+var biologicalsex;
+
+
 //Nersparning av reaktionstider på röd (#ee4117)
 var redreaction1 = 0;
 var redreaction2 = 0;
