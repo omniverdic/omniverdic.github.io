@@ -73,3 +73,9 @@ button{
 [dn]{
     display: none; 
 }
+
+/* Media query */
+
+@media screen and (max-width: 1000px) {
+
+}
