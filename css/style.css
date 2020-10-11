@@ -21,6 +21,7 @@ div{
 .wait{
     background: rgb(195,0,0);
     color: #fff;
+    cursor: pointer;
 }
 .tap{
     background: green;
