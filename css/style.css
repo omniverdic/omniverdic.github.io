@@ -18,14 +18,20 @@ div{
     text-align: center;
     width: 100vw; 
 }
+
+form{
+margin-top: 10px;
+}
+
 .wait{
-    background: rgb(195,0,0);
+    background: #00e600;
     color: #fff;
-    cursor: pointer;
+    
 }
 .tap{
-    background: green;
+    background: red;
     color: #fff;
+    cursor: pointer;
 }
 
 /* --< highscore elements >-- */

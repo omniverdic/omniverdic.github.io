@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reaction Time Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/script.js"></script>
+      </head>
+
+    <body>
+        <div class="info-collection"> 
+            <p>This test has two parts, one of which is a visual part where you will be shown five different colors on which your reaction time will be tested.</p>
+            <p>There is also an audial part where three different sounds will be played and your reaction time will be tested. Please do check that your sound is on and please use headphones.</p>
+            <p></p>
+            <p>Please enter your information here under.</p>
+            <form>
+                <label for="name-collection">Name: </label>
+                <input type="text" id="name-collection" name="name-collection">
+            </form>
+            <form>
+                <label for="age-collection">Age: </label>
+                <input type="text" id="age-collection" name="age-collection">
+            </form>
+            <form>
+                <label for="gender-collection">Biological sex: </label>
+                <select name="gender-collection" id="gender-collection"></select>
+            </form>
+            <button>Submit</button>
+        </div>
+        <div class="entire" dn>
+            <p>Test your reaction time.</p>
+            <p>Wait for turning the screen to green. Then tap anywhere and your reaction time will be displayed. Give it a try:</p>
+            <button>Start</button>
+        </div>
+        <div class="wait" dn>
+            Wait for green color!
+        </div>
+        <div class="tap" dn>
+            Tap now!
+        </div>
+        <div class="toofast" dn>
+            <p>You were too fast!</p>
+            <p>Please tap when screen is green!</p>
+            <button>Continue</button>
+        </div>
+        <div class="result" dn>
+            <t>It took you <res></res>ms to tap!</t>
+            <hs dn>You set a new highscore!</hs>
+            <button>Continue</button>
+        </div>
+        <div class="highscore">
+             Highscore: <res>? </res>ms
+         </div>
+        <footer>Gymnasiearbete av Sang, Elias och Rohan | 2020</footer>
+    </body>
+</html>
