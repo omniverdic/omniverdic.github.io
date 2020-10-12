@@ -6,6 +6,8 @@ an element */
 
 var timer; //Variabeln för hur lång tid innan färgskärm visas
 var reaction; //Variablen för hur snabbt du lyckades reagera på färgen
+var sectioncounter = 0; //Variabel för att se vilken del av sektion du är den s
+var partcounter = 0;
 
 
 //Användarinformation (namn, ålder och biologiskt kön)
@@ -49,26 +51,39 @@ var pinkreaction3 = 0;
 var pinkreaction4 = 0;
 var pinkreaction5 = 0;
 
-//Nersparning av reaktionstider på 300Hz
-var hz300reaction1 = 0;
-var hz300reaction2 = 0;
-var hz300reaction3 = 0;
-var hz300reaction4 = 0;
-var hz300reaction5 = 0;
+//Nersparning av reaktionstider på 262Hz (Middle C, C4)
+var hz262reaction1 = 0;
+var hz262reaction2 = 0;
+var hz262reaction3 = 0;
+var hz262reaction4 = 0;
+var hz262reaction5 = 0;
 
-//Nersparning av reaktionstider på 700Hz
-var hz700reaction1 = 0;
-var hz700reaction2 = 0;
-var hz700reaction3 = 0;
-var hz700reaction4 = 0;
-var hz700reaction5 = 0;
+//Nersparning av reaktionstider på 1047Hz (C6)
+var hz1047reaction1 = 0;
+var hz1047reaction2 = 0;
+var hz1047reaction3 = 0;
+var hz1047reaction4 = 0;
+var hz1047reaction5 = 0;
 
-//Nersparning av reaktionstider på 2000Hz
-var hz2000reaction1 = 0;
-var hz2000reaction2 = 0;
-var hz2000reaction3 = 0;
-var hz2000reaction4 = 0;
-var hz2000reaction5 = 0;
+//Nersparning av reaktionstider på 4186Hz (Highest C, C8)
+var hz4186reaction1 = 0;
+var hz4186reaction2 = 0;
+var hz4186reaction3 = 0;
+var hz4186reaction4 = 0;
+var hz4186reaction5 = 0;
 
 
 //Variabler till nödvändiga element
+var infocollection = document.getElementsByClassName("infocollection")[0];
+
+var entire = document.getElementsByClassName("entire")[0];
+var entirebtn = entire.getElementsByTagName("button")[0];
+
+var wait = document.getElementsByClassName("wait")[0];
+
+var tap = document.getElementsByClassName("tap")[0];
+
+var toofast = document.getElementsByClassName("toofast")[0];
+var toofastbtn = toofast.getElementsByTagName("button")[0]; 
+
+var result 

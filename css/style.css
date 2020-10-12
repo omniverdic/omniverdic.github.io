@@ -1,5 +1,5 @@
 *{
-    font-family: "Open Sans", sans-serif; 
+    font-family: 'Quicksand', sans-serif;
 }
 
 body {
@@ -20,7 +20,7 @@ div{
 }
 
 form{
-margin-top: 10px;
+    margin-top: 10px;
 }
 
 .wait{
@@ -34,21 +34,8 @@ margin-top: 10px;
     cursor: pointer;
 }
 
-/* --< highscore elements >-- */
-.highscore{
-    background: rgb(35,35,35);
-    color: #fff;
-    display: block;
-    font-size: 0.85em;
-    height: auto;
-    left: 0;
-    padding: 4px;
-    position: absolute; 
-    top: 0;
-    width: 100vw;
-}
-.hs{
-   color: rgb(12,85,225); 
+.smallerdevices {
+    display: none;
 }
 
 /* --< footer element >-- */
@@ -83,6 +70,16 @@ button{
 
 /* Media query */
 
-@media screen and (max-width: 1000px) {
-
+@media screen and (max-width: 1000px){
+    .bodywrapper {
+        display: none;
+    }
+    
+    .smallerdevices {
+        display: flex;
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        background-color: #05fded;
+    }
 }
