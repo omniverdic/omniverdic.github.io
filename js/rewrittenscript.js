@@ -75,6 +75,7 @@ var hz4186reaction5 = 0;
 
 //Variabler till nödvändiga element
 var infocollection = document.getElementsByClassName("infocollection")[0];
+var infosubmit = infocollection.getElementsByTagName("button")[0];
 
 var entire = document.getElementsByClassName("entire")[0];
 var entirebtn = entire.getElementsByTagName("button")[0];
@@ -86,4 +87,10 @@ var tap = document.getElementsByClassName("tap")[0];
 var toofast = document.getElementsByClassName("toofast")[0];
 var toofastbtn = toofast.getElementsByTagName("button")[0]; 
 
-var result 
+var result = document.getElementsByClassName("result")[0];
+var resultbtn = result.getElementsByTagName("button")[0];
+var resultf = result.getElementsByTagName("res")[0];
+
+//onclick handlers
+
+
