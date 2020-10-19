@@ -5,14 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
-        <script defer src="/js/script.js"></script>
+        <script defer src="/js/rewrittenscript.js"></script>
       </head>
 
     <body>
         <div class="bodywrapper">
-            <div class="infocollection"> 
+            <div class="firstpage"> 
+                <h1>Reaction time test</h1>
                 <p>This test has two parts, one of which is a visual part where you will be shown five different colors on which your reaction time will be tested five times on each color.</p>
                 <p>There is also an audial part where three different sounds will be played and your reaction time will be tested five times per sound.</p> <!--SKRIV när aktuellt: Please do check that your sound is on and please use headphones. -->
+                <button id="toinfocollection" onclick="firstPageToInfo()">Continue</button>
+            </div>
+
+            <div class="infocollection" dn>
                 <p>Please enter your information in the following screens.</p>
                 <form>
                     <label for="namecollection">Name: </label>
@@ -21,7 +26,7 @@
                 <form>
                     <label for="agecollection">Age: </label>
                     <select name="agecollection" id="agecollection">
-                        <option value="" selected hidden>Choose age group</option>
+                        <option selected="true" disabled="disabled">Select age:</option>
                         <option value=">18"> &lt18</option>
                         <option value="18-24">18-24</option>
                         <option value="25-35">25-35</option>
@@ -33,28 +38,35 @@
                 <form>
                     <label for="gendercollection">Biological sex: </label>
                     <select name="gendercollection" id="gendercollection">
+                        <option selected="true" disabled="disabled">Select biological sex:</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </form>
-                <button>Submit</button>
+                <button onclick="infoToFirstPage()">Previous</button>
+                <button class="submitbutton">Submit</button>
             </div>
+
             <div class="entire" dn>
                 <p>Test your reaction time.</p>
                 <p>Wait for the screen to turn from white to any color. Once you see a color pop up, click with your left-mouse button immediately. Give it a try:</p>
                 <button>Start</button>
             </div>
+
             <div class="wait" dn>
                 Wait for color!
             </div>
+
             <div class="tap" dn>
                 Tap now!
             </div>
+
             <div class="toofast" dn>
                 <p>You were too fast!</p>
                 <p>Please tap when the screen has turned another color!</p>
                 <button>Continue</button>
             </div>
+
             <div class="result" dn>
                 <t>It took you <res></res>ms to tap!</t>
                 <hs dn>You set a new highscore!</hs>
@@ -62,97 +74,9 @@
             </div>
         </div>
         
-        <div class="smallerdevices">
+        <div class="smallerdevices" dn>
             Please use a computer or laptop with a connected mouse for this test.   
         </div>
-
-
-        <footer>Gymnasiearbete av Sang, Elias, och Rohan | 2020</footer>
-            <div class="entire" dn>
-                <p>Test your reaction time.</p>
-                <p>Wait for the screen to turn from white to any color. Once you see a color pop up, click with your left-mouse button immediately. Give it a try:</p>
-                <button>Start</button>
-            </div>
-            <div class="wait" dn>
-                Wait for color!
-            </div>
-            <div class="tap" dn>
-                Tap now!
-            </div>
-            <div class="toofast" dn>
-                <p>You were too fast!</p>
-                <p>Please tap when the screen has turned another color!</p>
-                <button>Continue</button>
-            </div>
-            <div class="result" dn>
-                <t>It took you <res></res>ms to tap!</t>
-                <hs dn>You set a new highscore!</hs>
-                <button>Continue</button>
-            </div>
-        </div>
-        
-        <div class="smallerdevices">
-            Please use a computer or laptop with a connected mouse for this test.   
-        </div>
-
-
-        <footer>Gymnasiearbete av Sang, Elias, och Rohan | 2020</footer>
-            <div class="entire" dn>
-                <p>Test your reaction time.</p>
-                <p>Wait for the screen to turn from white to any color. Once you see a color pop up, click with your left-mouse button immediately. Give it a try:</p>
-                <button>Start</button>
-            </div>
-            <div class="wait" dn>
-                Wait for color!
-            </div>
-            <div class="tap" dn>
-                Tap now!
-            </div>
-            <div class="toofast" dn>
-                <p>You were too fast!</p>
-                <p>Please tap when the screen has turned another color!</p>
-                <button>Continue</button>
-            </div>
-            <div class="result" dn>
-                <t>It took you <res></res>ms to tap!</t>
-                <hs dn>You set a new highscore!</hs>
-                <button>Continue</button>
-            </div>
-        </div>
-        
-        <div class="smallerdevices">
-            Please use a computer or laptop with a connected mouse for this test.   
-        </div>
-
-
-        <footer>Gymnasiearbete av Sang, Elias, och Rohan | 2020</footer>
-            <div class="entire" dn>
-                <p>Test your reaction time.</p>
-                <p>Wait for the screen to turn from white to any color. Once you see a color pop up, click with your left-mouse button immediately. Give it a try:</p>
-                <button>Start</button>
-            </div>
-            <div class="wait" dn>
-                Wait for color!
-            </div>
-            <div class="tap" dn>
-                Tap now!
-            </div>
-            <div class="toofast" dn>
-                <p>You were too fast!</p>
-                <p>Please tap when the screen has turned another color!</p>
-                <button>Continue</button>
-            </div>
-            <div class="result" dn>
-                <t>It took you <res></res>ms to tap!</t>
-                <hs dn>You set a new highscore!</hs>
-                <button>Continue</button>
-            </div>
-        </div>
-        
-        <div class="smallerdevices">
-            Please use a computer or laptop with a connected mouse for this test.   
-        </div>
-
 
         <footer>Gymnasiearbete av Sang, Elias, och Rohan | 2020</footer>
     </body>

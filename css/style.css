@@ -19,8 +19,28 @@ div{
     width: 100vw; 
 }
 
+.firstpage {
+    width: 80vw;
+}
+
+.firstpage h1 {
+    font-size: 2.25em;
+}
+
+.firstpage p {
+    font-size: 1.4em;
+}
+
+.infocollection p {
+    font-size: 1.4em;
+}
+
 form{
     margin-top: 10px;
+}
+
+.submitbutton {
+    background-color: green;
 }
 
 .wait{
@@ -32,10 +52,6 @@ form{
     background: red;
     color: #fff;
     cursor: pointer;
-}
-
-.smallerdevices {
-    display: none;
 }
 
 /* --< footer element >-- */
@@ -58,9 +74,9 @@ button{
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     color: #fff;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.25em;
     margin: 10px;
-    padding: 5px 12px;
+    padding: 7px 15px;
 }
 
 /* --< [dn] attribute for hiding elements easily >-- */
@@ -70,15 +86,20 @@ button{
 
 /* Media query */
 
-@media screen and (max-width: 1000px){
-    .bodywrapper {
+@media only screen and (hover: none) and (pointer: coarse) {
+   
+   .bodywrapper {
+        display: none;
+    }
+
+    footer {
         display: none;
     }
     
     .smallerdevices {
         display: flex;
         color: white;
-        font-size: 50px;
+        font-size: 2em;
         font-weight: bold;
         background-color: #05fded;
     }

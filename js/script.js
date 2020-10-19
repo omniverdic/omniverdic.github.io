@@ -33,7 +33,6 @@ window.onload=()=>{ // fires when all elements have been initialized
 
     
     // set onclick handlers 
-    
     entirebtn.onclick=()=>{
       entire.setAttribute("dn","");
       wait.removeAttribute("dn");

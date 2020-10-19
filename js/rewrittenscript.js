@@ -74,6 +74,9 @@ var hz4186reaction5 = 0;
 
 
 //Variabler till nödvändiga element
+var firstpage = document.getElementsByClassName("firstpage")[0];
+var toinfocollection = firstpage.getElementsByTagName("button")[0];
+
 var infocollection = document.getElementsByClassName("infocollection")[0];
 var infosubmit = infocollection.getElementsByTagName("button")[0];
 
@@ -91,6 +94,27 @@ var result = document.getElementsByClassName("result")[0];
 var resultbtn = result.getElementsByTagName("button")[0];
 var resultf = result.getElementsByTagName("res")[0];
 
-//onclick handlers
+//onclick handler functions
+function firstPageToInfo() {
+    firstpage.setAttribute("dn","");
+    infocollection.removeAttribute("dn");
+}
+
+function infoToFirstPage() {
+    infocollection.setAttribute("dn", "");
+    firstpage.removeAttribute("dn");
+}
 
 
+//mobile detection
+if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    // true for mobile device
+    device = "mobil";
+  } else {
+    // false for not mobile device
+    device = "inte_mobil";
+  }
