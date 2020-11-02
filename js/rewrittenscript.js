@@ -105,6 +105,15 @@ function infoToFirstPage() {
     firstpage.removeAttribute("dn");
 }
 
+function infotoEntire() {
+    infocollection.setAttribute("dn", "");
+    entire.removeAttribute("dn")
+}
+
+function submitInfo() {
+  if(document.getElementById("namecollection") == "")
+}
+
 
 //mobile detection
 if (
