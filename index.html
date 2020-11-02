@@ -19,14 +19,14 @@
 
             <div class="infocollection" dn>
                 <p>Please enter your information in the following screens.</p>
-                <form>
-                    <label for="namecollection">Name: </label>
-                    <input type="text" id="namecollection" name="namecollection" required>
+                <form name="namecollection">
+                    <label for="nameinput">Name: </label>
+                    <input type="text" id="nameinput" name="nameinput" required>
                 </form>
-                <form>
-                    <label for="agecollection">Age: </label>
-                    <select name="agecollection" id="agecollection">
-                        <option selected="true" disabled="disabled">Select age:</option>
+                <form name="agecollection">
+                    <label for="ageinput">Age: </label>
+                    <select name="ageinput" id="ageinput" required>
+                        <option value="Default" selected="true" disabled="disabled">Select age:</option>
                         <option value=">18"> &lt18</option>
                         <option value="18-24">18-24</option>
                         <option value="25-35">25-35</option>
@@ -37,16 +37,14 @@
                 </form>
                 <form>
                     <label for="gendercollection">Biological sex: </label>
-                    <select name="gendercollection" id="gendercollection">
-                        <option selected="true" disabled="disabled">Select biological sex:</option>
+                    <select name="genderinput" id="genderinput" required>
+                        <option value="Default" selected="true" disabled="disabled">Select biological sex:</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </form>
-                <button onclick="infoToFirstPage()">Previous</button>
-                <button class="submitbutton" onclick="infoToEntire">Submit</button>
-            </div>
-
+                <button onclick="submitInfo()">Previous</button>
+                <button class="submitbutton" onclick="submitInfo()">Submit</button>
             <div class="entire" dn>
                 <p>Test your reaction time.</p>
                 <p>Wait for the screen to turn from white to any color. Once you see a color pop up, click with your left-mouse button immediately. Give it a try:</p>
