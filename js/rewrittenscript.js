@@ -5,7 +5,7 @@ example.removeAttribute("dn") shows
 an element */
 
 var timer; //Variabeln för hur lång tid innan färgskärm visas
-var reaction; //Variablen för hur snabbt du lyckades reagera på färgen
+var reactiontime; //Variablen för hur snabbt du lyckades reagera på färgen
 var sectioncounter = 0; //Variabel för att se vilken del av sektion du är den s
 var partcounter = 0;
 
@@ -75,7 +75,6 @@ var hz4186Reaction5 = 0;
 
 //Variabler till nödvändiga element
 var firstPage = document.getElementsByClassName("firstpage")[0];
-var toInfoCollection = firstPage.getElementsByTagName("button")[0];
 var nameInput = document.getElementById("nameinput");
 var ageInput = document.getElementById("agecollection")
 var genderInput = document.getElementById("gendercollection")
@@ -83,8 +82,8 @@ var genderInput = document.getElementById("gendercollection")
 var infoCollection = document.getElementsByClassName("infocollection")[0];
 var infoSubmit = infoCollection.getElementsByTagName("button")[0];
 
-var entire = document.getElementsByClassName("entire")[0];
-var entireBtn = entire.getElementsByTagName("button")[0];
+var reaction = document.getElementsByClassName("reaction")[0];
+var reactionStart = reaction.getElementsByTagName("button")[0];
 
 var wait = document.getElementsByClassName("wait")[0];
 
@@ -99,34 +98,35 @@ var resultF = result.getElementsByTagName("res")[0];
 
 //onclick handler functions
 function firstPageToInfo() {
-  firstPage.setAttribute("dn","");
-  infoCollection.removeAttribute("dn");
+  window.location.href = "/info.html";
 }
 
 function infoToFirstPage() {
-  infoCollection.setAttribute("dn", "");
-  firstPage.removeAttribute("dn");
+  window.location.href  = "/index.html";
 }
 
 function submitInfo() {
-  if(document.forms["namecollection"].nameinput.value === ""){
+  if(document.forms[0].nameinput.value === ""){
     alert("Please fill out the information requested.");
-    return false;
+    console.log("error: 1");
+
   } 
-  else if(document.forms["agecollection"].ageinput.value === "Default") {
+  else if(document.forms[1].ageinput.value === "Default") {
     alert("Please fill out the information requested2");
-    return false;
+    console.log("error: 2");
   }
-  else if(document.forms["gendercollection"].genderinput.value === "Default") {
+  else if(document.forms[2].genderinput.value === "Default") {
     alert("Please fill out the information requested3");
-    return false;
+    console.log("error: 3");
   }
+
+  else {
     reactant = nameinput;
     age = ageInput;
     biologicalSex = genderInput;
-    infoCollection.setAttribute("dn", "");
-    entire.removeAttribute("dn");
-    return true;
+    console.log("submit sucess");
+    window.location.href = "/reactionlearn.html";
+  }
 }
 
 //mobile detection

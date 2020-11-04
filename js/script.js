@@ -15,8 +15,8 @@ window.onload=()=>{ // fires when all elements have been initialized
 
     // Get required elements 
 
-    var entire = document.getElementsByClassName("entire")[0];
-    var entirebtn = entire.getElementsByTagName("button")[0];
+    var reactionLearn = document.getElementsByClassName("reactionlearn")[0];
+    var reactionLearnBtn = reactionLearn.getElementsByTagName("button")[0];
     
     var wait = document.getElementsByClassName("wait")[0];
     
@@ -33,8 +33,8 @@ window.onload=()=>{ // fires when all elements have been initialized
 
     
     // set onclick handlers 
-    entirebtn.onclick=()=>{
-      entire.setAttribute("dn","");
+    reactionLearnBtn.onclick=()=>{
+      reactionLearn.setAttribute("dn","");
       wait.removeAttribute("dn");
       timer = setTimeout(()=>{
          wait.setAttribute("dn","");
@@ -65,16 +65,16 @@ window.onload=()=>{ // fires when all elements have been initialized
     
     resultbtn.onclick=()=>{
       result.setAttribute("dn","");
-      if(entire.hasAttribute("dn")){
-        entire.removeAttribute("dn");
+      if(reactionLearn.hasAttribute("dn")){
+        reactionLearn.removeAttribute("dn");
       }
       result.getElementsByTagName("hs")[0].setAttribute("dn","");
     }
 
     toofastbtn.onclick=()=>{
       toofast.setAttribute("dn","");
-      if(entire.hasAttribute("dn")){
-        entire.removeAttribute("dn");
+      if(reactionLearn.hasAttribute("dn")){
+        reactionLearn.removeAttribute("dn");
       }
     }
 }
