@@ -35,13 +35,50 @@ div{
     font-size: 1.4em;
 }
 
-form{
-    margin-top: 10px;
+.textseperation {
+    width: 300px;
+    margin: 7px 0 0 0;
+}
+
+label { 
+    float: left;
+}
+
+input {
+    float: right;
+    width: 144px;
+    height: 20px;
+    padding: 0 0 0 4px;
+    border: 1px solid black;
+}
+
+select {
+    float: right;
+    width: 150px;
+    height: 22px;
+    border: 1px solid black;
+}
+
+.buttonbox {
+    width: 225px;
+    height: 150px;
+    flex-wrap: wrap;
+    margin: 30px 0 0 0;
+}
+
+.buttonbox button {
+    margin: 0 0 15px 0;
 }
 
 .submitbutton {
     background-color: green;
+    width: 210px;
 }
+
+
+
+
+
 
 .wait{
     background: #00e600;
