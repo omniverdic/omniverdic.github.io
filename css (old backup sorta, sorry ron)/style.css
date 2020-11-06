@@ -1,0 +1,145 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: rgb(235,235,235);
+    margin: 0;
+    padding: 0;
+    width: 100vw; 
+    height: 100vh;
+}
+
+/* --< main elements >-- */
+div{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: center;
+
+}
+
+.firstpage {
+    width: 80vw;
+}
+
+.firstpage h1 {
+    font-size: 2.25em;
+}
+
+.firstpage p {
+    font-size: 1.4em;
+}
+
+.infocollection p {
+    font-size: 1.4em;
+}
+
+.textseperation {
+    width: 300px;
+    margin: 7px 0 0 0;
+}
+
+label { 
+    float: left;
+}
+
+input {
+    float: right;
+    width: 144px;
+    height: 20px;
+    padding: 0 0 0 4px;
+    border: 1px solid black;
+}
+
+select {
+    float: right;
+    width: 150px;
+    height: 22px;
+    border: 1px solid black;
+}
+
+.buttonbox {
+    width: 225px;
+    height: 150px;
+    flex-wrap: wrap;
+    margin: 30px 0 0 0;
+}
+
+.buttonbox button {
+    margin: 0 0 15px 0;
+}
+
+.submitbutton {
+    background-color: green;
+    width: 210px;
+}
+
+
+
+
+
+
+.wait{
+    background: #00e600;
+    color: #fff;
+    
+}
+.tap{
+    background: red;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* --< footer element >-- */
+footer{
+    background: rgb(205,205,205);
+    bottom: 0;
+    font-size: 0.85em;
+    left: 0;
+    padding: 0 4px;
+    position: absolute; 
+    text-align: center;
+    width: calc(100% - 8px);
+}
+
+/* --< button element >-- */
+button{
+    background: rgb(12,85,225);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.25em;
+    margin: 10px;
+    padding: 7px 15px;
+}
+
+/* --< [dn] attribute for hiding elements easily >-- */
+[dn]{
+    display: none; 
+}
+
+/* Media query */
+
+@media only screen and (hover: none) and (pointer: coarse) {
+   
+   .bodywrapper {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+    
+    .smallerdevices {
+        display: flex;
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
+        background-color: #05fded;
+    }
+}

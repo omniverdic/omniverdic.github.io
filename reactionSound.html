@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>nilsonstine reaction time carry</title>
+    <link
+      rel="stylesheet"
+      href="sound_reaction_assets/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="sound_reaction_assets/css/Footer-Basic.css" />
+    <link rel="stylesheet" href="sound_reaction_assets/css/Footer-Dark.css" />
+    <link
+      rel="stylesheet"
+      href="sound_reaction_assets/css/Registration-Form-with-Photo.css"
+    />
+    <link rel="stylesheet" href="sound_reaction_assets/css/styles.css" />
+  </head>
+  <body style="user-select: none">
+    <div class="card">
+      <div class="card-body" id="reactionlearn">
+        <h4 class="card-title">It's time for the sound test to start!<br /></h4>
+        <p class="card-text">
+          Wait for the screen to play a sound. Once you hear a sound play, click
+          with your left-mouse button immediately. Give it a try:<br />
+        </p>
+        <button class="btn btn-primary" id="startbutton" type="button">
+          Start
+        </button>
+        <div class="container">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            step="1"
+            list="tickmarks"
+            id="master"
+            onclick="playsong()"
+          />
+          <datalist id="tickmarks">
+            <option value="0 to 20">0</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+            <option>100</option>
+          </datalist>
+          <p id="output" ><b>Volume is at:</b> 50%</output>
+          <!-- Just to display selected value -->
+        </div>
+      </div>
+      <div class="card-body" id="toofast">
+        <h4 class="card-title">Pressed too early!<br /></h4>
+        <button class="btn btn-primary" id="pressedtooearly" type="button">
+          Retry
+        </button>
+      </div>
+      <div class="card-body" id="result">
+        <h4 class="card-title" id="resulttxt">
+          PLACEHOLDER:&nbsp;<br />It took you 199ms to tap! press anywhere to
+          continue<br />
+        </h4>
+        <p class="card-text" id="highscore">
+          You set a new highscore! *new* from *previous*!
+        </p>
+      </div>
+    </div>
+    <div
+      style="
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      "
+    >
+      <p class="text-center" id="waitingforsound">Wait for sound</p>
+    </div>
+    <script src="https://tonejs.github.io/build/Tone.js"></script>
+
+    <script src="sound_reaction_assets/js/jquery.min.js"></script>
+    <script src="sound_reaction_assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="sound_reaction_assets\js\sound_reaction.js"></script>
+  </body>
+</html>

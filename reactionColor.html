@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>nilsonstine reaction time carry</title>
+    <link rel="stylesheet" href="color_reaction_assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="color_reaction_assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="color_reaction_assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="color_reaction_assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="color_reaction_assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="user-select: none">
+    <form>
+        <div>
+          <input id="rangeInput" type="range" min="0" max="200" oninput="amount.value=rangeInput.value" />
+          <input id="amount" type="number" value="100" min="0" max="200" oninput="rangeInput.value=amount.value" />
+        </div>
+      </form>
+      
+    <div class="card">
+        <div class="card-body" id="reactionlearn">
+            <h4 class="card-title">It's time for the test to start!<br></h4>
+            <p class="card-text">Wait for the screen to turn from white to any color. Once you see a color pop up, click with your left-mouse button immediately. Give it a try:<br></p><button class="btn btn-primary" id="startbutton" type="button">Start</button></div>
+        <div
+            class="card-body" id="toofast">
+            <h4 class="card-title">Pressed too early!<br></h4><button class="btn btn-primary" id="pressedtooearly" type="button">Retry</button></div>
+    <div class="card-body" id="result">
+        <h4 class="card-title" id="resulttxt">PLACEHOLDER:&nbsp;<br>It took you 199ms to tap! press anywhere to continue<br></h4>
+        <p class="card-text" id="highscore">You set a new highscore! *new* from *previous*!</p>
+    </div>
+    </div>
+    <div style="width: 100px;height: 100px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
+        <p class="text-center" id="waitingforcolor">Wait for color</p>
+        <p class="text-center" id="waitingfortap">Tap!</p>
+    </div>
+    
+   
+    <script src="color_reaction_assets/js/jquery.min.js"></script>
+    <script src="color_reaction_assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="color_reaction_assets/js/reactionColor.js"></script>
+ 
+</body>
+
+</html>
