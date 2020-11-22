@@ -78,7 +78,7 @@ function showcolor() {
 
   var time = getRandomNumber(2000, 5000);
   //Uncomment/comment line under for quick debugging
-  time = 10;
+  //time = 10;
   document.body.style.background = "rgb(235,235,235)";
   document.getElementById("waitingforcolor").style.display = "block";
   document.addEventListener("mousedown", toofast);
