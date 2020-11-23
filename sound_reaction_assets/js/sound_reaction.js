@@ -187,9 +187,9 @@ function whenclick() {
       reactionTime +
       "ms to tap! press anywhere to continue to the next test!";
     btn = document.createElement("BUTTON");
-    btn.innerHTML = "Continue to sound test!";
+    btn.innerHTML = "Continue";
     btn.onclick = function () {
-      saveToSheetsandGoToSound();
+      sendtosheets();
     };
     btn.className = "btn btn-primary";
     document.getElementById("result").appendChild(btn);
