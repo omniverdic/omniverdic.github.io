@@ -1,7 +1,6 @@
 console.log("js linked correctly");
 //mobile detection
 
-
 var redReactionTimes = new Array();
 var yellowReactionTimes = new Array();
 var blueReactionTimes = new Array();
@@ -15,10 +14,8 @@ var clickedTime;
 var createdTime;
 var reactionTime;
 var clickedearly;
-var name;
-var age;
-var gender;
 var device;
+var highscore=null;
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
@@ -28,30 +25,28 @@ if (
   window.alert("To participate in this study you will need to use a computer");
   window.location.href = "https://www.youtube.com/watch?v=6r5eGfbbLgk";/*/
   device = "phone";
+} else {
+  device = "computer";
 }
-else{
-  device= "computer";
+
+const myUrl = new URL(window.location.href);
+var name = myUrl.searchParams.get("name");
+var age = myUrl.searchParams.get("age");
+var gender = myUrl.searchParams.get("gender");
+if (
+  name === null ||
+  age === null ||
+  gender === null ||
+  name === "" ||
+  age === "" ||
+  gender === ""
+) {
+  window.alert("Please go through the main url");
+  window.location.href = "index.html";
 }
 
-var str = window.location.href;
-name = str.substring(str.lastIndexOf("?name=") + 6, str.lastIndexOf("?age="));
-age = str.substring(str.lastIndexOf("?age=") + 5, str.lastIndexOf("?gender="));
-gender = str.substring(str.lastIndexOf("?gender=") + 8, str.lastIndexOf("?"));
-str = "";
-
-/*/
-ONLY FOR REFERENCE SLUTA SPHAGETTI KODA
-var redReaction = "ee4117";
-var yellowReaction = "fcf60a";
-var blueReaction = "0267ad";
-var orangeReaction = "e17000";
-var pinkReaction = "ff69b4";
-
-var hz262Reaction = "Middle C, C4";
-var hz1047Reaction = "C6";
-var hz4186Reaction = "Highest C, C8";
-/*/
-
+//let userdata = getuserdatafromurl();
+//const [name, age, gender] = getuserdatafromurl();
 //Creates array of colors(lite sphagetti är ok ibland)
 var ColorCodes =
   "#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4";
@@ -70,6 +65,9 @@ document.getElementById("startbutton").onclick = function () {
   showcolor();
 };
 var waitforcolortoshow;
+document.getElementById("pressedtooearly").onclick = function () {
+  showcolor();
+};
 function showcolor() {
   clickedearly = false;
   document.getElementById("toofast").style.display = "none";
@@ -78,7 +76,7 @@ function showcolor() {
 
   var time = getRandomNumber(2000, 5000);
   //Uncomment/comment line under for quick debugging
-  time = 10;
+  //time = 10;
   document.body.style.background = "rgb(235,235,235)";
   document.getElementById("waitingforcolor").style.display = "block";
   document.addEventListener("mousedown", toofast);
@@ -104,7 +102,7 @@ function toofast() {
   document.getElementById("toofast").style.display = "block";
   clickedearly = true;
   document.removeEventListener("mousedown", toofast);
-  document.addEventListener("mousedown", showcolor);
+  document.removeEventListener("mousedown", showcolor);
   clearTimeout(waitforcolortoshow);
 }
 var btn;
@@ -140,6 +138,11 @@ function whenclick() {
   } else {
     document.getElementById("resulttxt").innerHTML =
       "It took you " + reactionTime + "ms to tap! press anywhere to continue";
+  }
+  if (reactionTime < highscore) {
+    document.getElementById("highscore").innerHTML =
+      "You set a new highscore! Previous was " + highscore;
+    highscore = reactionTime;
   }
 }
 
@@ -220,16 +223,7 @@ function saveToSheetsandGoToSound() {
   )
     .then((r) => r.json())
     .then((data) => {
-      //window.alert("data sent to google sheets, pls write some more code now");
-      window.location.href =
-        "reactionSound.html?name=" +
-        name +
-        "?age=" +
-        age +
-        "?gender=" +
-        gender +
-        "?";
-
+      window.location.href = "/reactionSound.html?" + myUrl.searchParams;
       console.log(data);
     })
     .catch((error) => {

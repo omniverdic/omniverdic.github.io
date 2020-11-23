@@ -4,53 +4,22 @@ startedplaying = false;
 var startsound = true;
 var master;
 var audio;
-window.addEventListener("load", function () {
-  audio = document.createElement("AUDIO");
-  audio.src = "sound_reaction_assets/mario.mp3";
-  audio.loop = true;
-});
-
-window.addEventListener("load", playsong());
-
-function playsong() {
-  master = document.getElementById("master");
-
-  master.oninput = function (event) {
-    document.getElementById("output").innerHTML =
-      "<b>Volume is at:</b> " + master.value + "%";
-    var elements = document.querySelectorAll("audio, video");
-    elements = document;
-
-    if (startsound) {
-      audio.play();
-    }
-    audio.volume = master.value / 100;
-    startsound = false;
-    console.log(master.value);
-    document.addEventListener("mouseup", detectmouseup);
-  };
-}
-
-function detectmouseup() {
-  audio.pause();
-  startsound = true;
-  document.removeEventListener("mouseup", detectmouseup);
-  console.log("stopped");
-}
-
+var synth;
+var now;
 var currentsoundcode;
-
 var hz262ReactionTimes = new Array();
 var hz1047ReactionTimes = new Array();
 var hz4186ReactionTimes = new Array();
+var arrayofsounds = new Array();
 var currentsoundcode;
 var clickedTime;
 var createdTime;
 var reactionTime;
 var clickedearly;
-var name;
-var age;
-var gender;
+var highscore = null;
+var SoundCodes = "C4-C6-C8-C4-C6-C8-C4-C6-C8-C4-C6-C8-C4-C6-C8";
+arrayofsounds = SoundCodes.split("-");
+arrayofsounds = shuffle(arrayofsounds);
 
 var device;
 if (
@@ -66,35 +35,96 @@ if (
   device = "computer";
 }
 
-var str = window.location.href;
-name = str.substring(str.lastIndexOf("?name=") + 6, str.lastIndexOf("?age="));
-age = str.substring(str.lastIndexOf("?age=") + 5, str.lastIndexOf("?gender="));
-gender = str.substring(str.lastIndexOf("?gender=") + 8, str.lastIndexOf("?"));
-str = "";
-
-var SoundCodes = "C4-C6-C8-C4-C6-C8-C4-C6-C8-C4-C6-C8-C4-C6-C8";
-var arrayofsounds = new Array();
-arrayofsounds = SoundCodes.split("-");
-arrayofsounds = shuffle(arrayofsounds);
+const myUrl = new URL(window.location.href);
+var name = myUrl.searchParams.get("name");
+var age = myUrl.searchParams.get("age");
+var gender = myUrl.searchParams.get("gender");
+if (
+  name === null ||
+  age === null ||
+  gender === null ||
+  name === "" ||
+  age === "" ||
+  gender === ""
+) {
+  window.alert("Please go through the main url");
+  window.location.href = "index.html";
+}
 
 document.getElementById("waitingforsound").style.display = "none";
 // NOT NEEDED JUST HERE FOR LESS CONFUSION CUM CUM CUM document.getElementById("waitingfortap").style.display = "none";
 document.getElementById("toofast").style.display = "none";
 document.getElementById("result").style.display = "none";
+document.getElementById("startbutton").style.display = "none";
+document.getElementById("sliderdiv").style.display = "none";
 
 //Instruction removal
-document.getElementById("startbutton").onclick = function () {
-  document.getElementById("reactionlearn").style.display = "none";
-  document.getElementById("startbutton").disabled = "true";
+
+//Volume bar stuff
+var initialsetupfortonetest = true;
+function initializedassets() {
+  console.log("initialized setup23412");
+  synth = new Tone.Synth().toDestination();
+  now = Tone.now();
+  initialsetupfortonetest = false;
+  document.getElementById("initializebutton").style.display = "none";
+  document.getElementById("startbutton").style.display = "block";
+  document.getElementById("sliderdiv").style.display = "block";
+  adjustvolume();
+}
+// Starts the tone.js stuff (since it requires a user to press a button)
+function InitializeStuff(callback) {
+  document.getElementById("initializebutton").innerHTML =
+    '<i class="fa fa-circle-o-notch fa-spin"></i>Intializing!';
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+
+  if (script.readyState) {
+    //IE
+    script.onreadystatechange = function () {
+      if (script.readyState == "loaded" || script.readyState == "complete") {
+        script.onreadystatechange = null;
+        callback();
+      }
+    };
+  } else {
+    //Others
+    script.onload = function () {
+      callback();
+    };
+  }
+
+  script.src = "https://tonejs.github.io/build/Tone.js";
+  document.getElementsByTagName("head")[0].appendChild(script);
+}
+function adjustvolume() {
+  console.log("playing sound");
+  master = document.getElementById("master");
+  document.getElementById("volumevalueoutput").innerHTML =
+    "<b>Volume is at:</b> " + master.value + "DB";
+
+  master.oninput = function (event) {
+    synth.volume.value = master.value;
+    console.log(master.value);
+    document.getElementById("volumevalueoutput").innerHTML =
+      "<b>Volume is at:</b> " + master.value + "DB";
+  };
+  master.onmousedown = function () {
+    synth.triggerAttack("C4", now);
+  };
+  master.onmouseup = function () {
+    synth.triggerRelease(now);
+    console.log("stopped");
+  };
+}
+
+//actual test
+document.getElementById("pressedtooearly").onclick = function () {
   playsound();
 };
-
-var waitforsoundtoplay;
-//Creation of synth instance
-const synth = new Tone.Synth().toDestination();
-const now = Tone.now();
-
 function playsound() {
+  document.getElementById("reactionlearn").style.display = "none";
+  synth.volume.value = master.value;
   synth.triggerRelease(now);
   clickedearly = false;
   document.getElementById("toofast").style.display = "none";
@@ -119,6 +149,7 @@ function playsoundelement() {
   document.removeEventListener("mousedown", toofast);
   currentsoundcode = arrayofsounds[0];
   arrayofsounds.shift();
+
   synth.triggerAttack(currentsoundcode, now);
   createdTime = Date.now();
   document.addEventListener("mousedown", whenclick);
@@ -128,7 +159,8 @@ function toofast() {
   document.getElementById("waitingforsound").style.display = "none";
   document.getElementById("toofast").style.display = "block";
   document.removeEventListener("mousedown", toofast);
-  document.addEventListener("mousedown", playsound);
+  document.removeEventListener("mousedown", playsound);
+
   //Cancels the timeout so it dont spam
   clearTimeout(waitforsoundtoplay);
 }
@@ -143,9 +175,34 @@ function whenclick() {
   reactionTime = clickedTime - createdTime;
   console.log(currentsoundcode);
   log();
+
   document.getElementById("result").style.display = "block";
-  document.getElementById("resulttxt").innerHTML =
-    "It took you " + reactionTime + "ms to tap! press anywhere to continue";
+  if (arrayofsounds.length < 1) {
+    console.log("cumcumcum");
+    document.removeEventListener("mousedown", toofast);
+    document.removeEventListener("mousedown", playsound);
+    document.removeEventListener("mousedown", whenclick);
+    document.getElementById("resulttxt").innerHTML =
+      "It took you " +
+      reactionTime +
+      "ms to tap! press anywhere to continue to the next test!";
+    btn = document.createElement("BUTTON");
+    btn.innerHTML = "Continue to sound test!";
+    btn.onclick = function () {
+      saveToSheetsandGoToSound();
+    };
+    btn.className = "btn btn-primary";
+    document.getElementById("result").appendChild(btn);
+    //document.getElementById("result")[0].appendChild(btn);
+  } else {
+    document.getElementById("resulttxt").innerHTML =
+      "It took you " + reactionTime + "ms to tap! press anywhere to continue";
+  }
+  if (reactionTime < highscore) {
+    document.getElementById("highscore").innerHTML =
+      "You set a new highscore! Previous was " + highscore;
+    highscore = reactionTime;
+  }
 }
 
 //document.addEventListener("mousedown", mousePressed);
@@ -186,7 +243,7 @@ function sendtosheets() {
       Namn: name,
       Age: age,
       Gender: gender,
-
+      Volume: master.value,
       hz262Reaction1: hz262ReactionTimes[0],
       hz262Reaction2: hz262ReactionTimes[1],
       hz262Reaction3: hz262ReactionTimes[2],
@@ -220,7 +277,7 @@ function sendtosheets() {
   )
     .then((r) => r.json())
     .then((data) => {
-      window.alert("TEST COMPLETE BAI BAI");
+      window.alert("Test complete, thank you!");
       window.location.href = "https://www.youtube.com/watch?v=6r5eGfbbLgk";
     })
     .catch((error) => {

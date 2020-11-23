@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Reaction Time Tester</title>
+    <title>Reaction Time Test</title>
     <link rel="stylesheet" href="info_assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="info_assets/css/Footer-Basic.css" />
     <link rel="stylesheet" href="info_assets/css/Footer-Dark.css" />
@@ -59,6 +59,10 @@
           </div>
           <div class="form-group">
             <select class="form-control" id="genderinput">
+              <option disabled="disabled" selected="selected">
+                Select Gender
+              </option>
+
               <optgroup label="Gender">
                 <option value="female">Female</option>
                 <option value="male">Male</option>
@@ -80,26 +84,32 @@
       <!-- End: Form Container -->
     </div>
     <!-- End: Registration Form with Photo -->
-    <!-- Start: Footer Basic -->
-    <div class="footer-basic">
-      <footer></footer>
-    </div>
-    <!-- End: Footer Basic -->
 
     <script src="info_assets/js/jquery.min.js"></script>
-    <script src="info_assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
-      //Kort så behöver inte separat
       document.getElementById("startbutton").onclick = function () {
-        //Sparar datan i url
-        window.location.href =
-          "reactionColor.html?name=" +
-          document.getElementById("nameinput").value +
-          "?age=" +
-          document.getElementById("ageinput").value +
-          "?gender=" +
-          document.getElementById("genderinput").value +
-          "?";
+        var nameinput = document.getElementById("nameinput").value;
+        var ageinput = document.getElementById("ageinput").value;
+        var genderinput = document.getElementById("genderinput").value;
+        if (
+          nameinput === null ||
+          ageinput === null ||
+          genderinput === null ||
+          nameinput === "" ||
+          ageinput === "" ||
+          genderinput === ""
+        ) {
+          window.alert(
+            "You seem to have forgotten to fill in one of the inputs"
+          );
+        } else {
+          const myUrl = new URL(window.location.href);
+          myUrl.searchParams.set("name", nameinput);
+          myUrl.searchParams.set("age", ageinput);
+          myUrl.searchParams.set("gender", genderinput);
+          console.log(myUrl);
+          window.location.href = "/reactionColor.html?" + myUrl.searchParams;
+        }
       };
     </script>
   </body>
