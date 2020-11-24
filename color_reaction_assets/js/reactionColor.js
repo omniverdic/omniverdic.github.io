@@ -49,7 +49,7 @@ if (
 //const [name, age, gender] = getuserdatafromurl();
 //Creates array of colors(lite sphagetti är ok ibland)
 var ColorCodes =
-  "#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4-#ee4117-#fcf60a-#0267ad-#e17000-#ff69b4";
+  "#e4002b-#ffcd00-#041e42-#e57200-#ff69b4-#e4002b-#ffcd00-#041e42-#e57200-#ff69b4-#e4002b-#ffcd00-#041e42-#e57200-#ff69b4-#e4002b-#ffcd00-#041e42-#e57200-#ff69b4-#e4002b-#ffcd00-#041e42-#e57200-#ff69b4";
 var arrayofcolors = new Array();
 arrayofcolors = ColorCodes.split("-");
 arrayofcolors = shuffle(arrayofcolors);
@@ -148,16 +148,16 @@ function whenclick() {
 
 function log() {
   switch (currentcolorcode) {
-    case "#ee4117":
+    case "#e4002b":
       redReactionTimes.push(reactionTime);
       break;
-    case "#fcf60a":
+    case "#ffcd00":
       yellowReactionTimes.push(reactionTime);
       break;
-    case "#0267ad":
+    case "#041e42":
       blueReactionTimes.push(reactionTime);
       break;
-    case "#e17000":
+    case "#e57200":
       orangeReactionTimes.push(reactionTime);
       break;
     case "#ff69b4":
